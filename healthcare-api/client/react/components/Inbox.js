@@ -1,6 +1,6 @@
 import React from 'react';
 import Message from './Message';
-import store from '../redux/store';
+import store from '../../redux/store';
 
 export default class extends React.Component {
 
