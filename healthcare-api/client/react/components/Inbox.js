@@ -6,7 +6,7 @@ export default class extends React.Component {
 
     constructor() {
         super();
-        this.state={messages:[]}
+        this.state = {messages: []};
     }
 
     render() {
@@ -14,7 +14,7 @@ export default class extends React.Component {
             <div>
                 <h1>Inbox</h1>
                 {this.state.messages.map( message => (
-                    <Message fullMessage={message}/>
+                    <Message fullMessage={message} />
                     ))
                 }
             </div>
