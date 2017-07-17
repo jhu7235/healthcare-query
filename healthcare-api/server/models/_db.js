@@ -1,6 +1,6 @@
 import Sequelize from 'sequelize';
 
-const db = new Sequelize('postgres://localhost:5432/checkpoint_senior', {
+const db = new Sequelize('postgres://localhost:5432/healthcare_query', {
     logging: false
 });
 

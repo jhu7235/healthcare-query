@@ -7,6 +7,8 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(require('./session.middleware'));
+
 import usersSubRouter from './routes/users-router';
 import messagesSubRouter from './routes/messages-router';
 
