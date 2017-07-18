@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const User = require('../user/user.model');
+const User = require('../user/user');
 
 router.post('/login', (req, res, next) => {
 	User.findOne({
