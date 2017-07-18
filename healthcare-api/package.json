@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "author": "Fullstack Instructors",
   "scripts": {
-    "start": "node server/app"
+    "start": "nodemon server"
   },
   "devDependencies": {},
   "dependencies": {
     "axios": "^0.16.2",
     "body-parser": "^1.14.2",
+    "bundle": "^0.2.3",
     "express": "^4.13.3",
     "express-session": "^1.15.3",
     "morgan": "^1.8.2",
@@ -16,6 +17,7 @@
     "react": "^15.4.1",
     "react-dom": "^15.3.2",
     "redux": "^3.6.0",
-    "sequelize": "^3.30.4"
+    "sequelize": "^3.30.4",
+    "webpack": "^3.3.0"
   }
 }
