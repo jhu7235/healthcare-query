@@ -6,9 +6,9 @@ const { Link } = require('react-dom');
 
 export default Nav = function() {
 	return (
-		<div id="LogIn">
+		<form id="LogIn" onSubmit={this.handleSubmit}>
 			<Link><button src={someLink} />
 			</Link>
-		</div>
+		</form>
 		);
 };
