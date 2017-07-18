@@ -3,11 +3,16 @@
   "version": "1.0.0",
   "author": "Fullstack Instructors",
   "scripts": {
-    "start": "nodemon server"
+    "start": "webpack -w & nodemon --watch server -e js,html server/index.js"
   },
   "devDependencies": {},
   "dependencies": {
     "axios": "^0.16.2",
+    "babel": "^5.8.38",
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
     "body-parser": "^1.14.2",
     "bundle": "^0.2.3",
     "express": "^4.13.3",
@@ -16,6 +21,7 @@
     "pg": "^5.1.0",
     "react": "^15.4.1",
     "react-dom": "^15.3.2",
+    "react-redux": "^5.0.5",
     "redux": "^3.6.0",
     "sequelize": "^3.30.4",
     "webpack": "^3.3.0"
