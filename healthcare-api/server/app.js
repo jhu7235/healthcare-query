@@ -1,20 +1,14 @@
-import express from 'express';
-import path from 'path';
-import bodyParser from 'body-parser';
+const express = require( 'express');
 
+const path = require( 'path' );
+console.log('**INITIATES APP');
 const app = express();
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(require('./middlewares/session'));
+app.use(require('./middlewares/logging'));
+app.use(require('./middlewares/bodyParser'));
 
-app.use(require('./session.middleware'));
-
-import usersSubRouter from './routes/users-router';
-import messagesSubRouter from './routes/messages-router';
-
-app.use('/users', usersSubRouter);
-app.use('/messages', messagesSubRouter);
-
+app.use('/api', require('./api'));
 app.get('/', function (req, res, next) {
     res.sendFile(path.join(__dirname, './index.html'));
 });
@@ -25,3 +19,4 @@ app.use(function (err, req, res, next) {
 });
 
 module.exports = app;
+console.log('**INITIATES APP END');
