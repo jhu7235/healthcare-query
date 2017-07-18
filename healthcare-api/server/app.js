@@ -10,6 +10,7 @@ app.use('/api', require('./api'));
 // app.get('/', function (req, res, next) {
 //     res.sendFile(path.join(__dirname, './index.html'));
 // });
+app.use(require('./middlewares/statics'));
 app.use(function (err, req, res, next) {
     console.error(err, err.stack);
     res.status(500).send(err);
