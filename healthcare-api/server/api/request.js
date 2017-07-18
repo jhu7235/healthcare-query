@@ -1,59 +1,49 @@
 const axios = require('axios');
 const router = require('express').Router();
 
-//axios automatically converts xml to request 
-router.get('/patient/', (req, res, next) => {
-	axios.get('https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/FamilyMemberHistory?patient=Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB')
-		.then(res => {
-		  console.log('data', res.data);
-		})
-		.catch(console.error);
-});
-
-module.exports = router;
-
-const axios = require('axios');
- 
-//Create necessary strings
+//Defining useful constants
 const baseUrl = 'https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/';
-const createPatientQuery = (patient) => `Patient?given=${patient.given}&family=${patient.family}`;
-let response;
-const getPatientId = async (patient) => {
-  response = await axios.get(`${baseUrl}${createPatientQuery(patient)}`);
-  console.log('response', response.data);
+// const medicalInfo = ['AllergyIntolerance', 'MedicationOrder', 'Condition', 'FamilyMemberHistory',
+// 'Observation', 'DiagnosticReport', 'Immunization', 'Procedure', 'Device', 'DocumentReference', 'CarePlan'];
+
+//Creating helper functions
+const createPatientQuery = patient => `Patient?given=${patient.given}&family=${patient.family}`;
+const getPatientId= async patient => {
+  const response = await axios.get(`${baseUrl}${createPatientQuery(patient)}`);
+  const patientId = response.data.entry[0].link[0].url.split("/").pop();
+  return patientId;
+};
+const getRelevantMedicalInfo = async (patientId, medicalInfoWanted) => {
+  const response = await axios.get(`${baseUrl}${medicalInfoWanted}?patient=${patientId}`);
   return response.data;
 };
 
-
+//Dummy patients
 const patient1 = {given: 'Jason', family: 'Argonaut'};
 
-getPatientId(patient1);
-let thing = response;
 
-console.log('thing', thing);
-// console.log(await getPatientId(patient1));
+//Routes
+router.get('/patient', (req, res, next) => {
+  getPatientId(patient1)
+  .then(patientId => res.send(patientId))
+  .catch(next);
+});
 
-  // axios.get(`${baseUrl}${createPatientQuery(patient1)}`)
-  // .then(res => {
-  //   console.log('data', res.data.entry);
-  // })
-  // .catch(console.error);
+router.get('/patient/:patientId/:relevantMedicalInfo', (req, res, next) => {
 
+  const medicalInfoWanted = req.params.relevantMedicalInfo;
+  const patient = req.params.patientId; //we wont have this yet and we will eventually need to make it an object or change getPatientId
 
-  // const response = await axios.get(`${baseUrl}${createPatientQuery(patient1)}`);
-  // console.log('data', response.data);
+  getPatientId(patient1)
+  .then(patientId => {
+    getRelevantMedicalInfo(patientId, medicalInfoWanted)
+    .then(medicalData => {
+      res.json(medicalData);
+    })
+    .catch(console.error);
+  })
+  .catch(console.error);
 
+});
 
-const neededInfo = ['AllergyIntolerance', 'MedicationOrder', 'Condition', 'FamilyMemberHistory',
-'Observation', 'DiagnosticReport', 'Immunization', 'Procedure', 'Device', 'DocumentReference', 'CarePlan'];
-
-// neededInfo.forEach(item => {
-
-//   axios.get(`https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/${item}?patient=Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB`)
-//   .then(res => {
-//     console.log('data', res.data);
-//   })
-//   .catch(console.error);
-
-// });
-
+module.exports = router;
