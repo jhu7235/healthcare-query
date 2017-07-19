@@ -1,12 +1,13 @@
 import React from 'react';
-import ReactDom from 'react-dom';
+import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import store from './store';
-import Main from './Main';
-
-ReactDom.render(
+import store from './js/store';
+import Main from './js/react/components/Main.js';
+console.log('**INTIATING APP IN CLIENT');
+ReactDOM.render(
 	<Provider store={store}>
 		<Main />
-		<h1>APP.JS</h1>
-	</Provider>
+	</Provider>,
+	document.getElementById('app')
 	);
+
