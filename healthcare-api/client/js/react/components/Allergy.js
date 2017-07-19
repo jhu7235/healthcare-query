@@ -3,9 +3,9 @@ const axios = require('axios');
 
 export default class Allergy extends React.Component {
 
-contructor() {
+constructor() {
   super()
-  this.setState({allergyOutputArray: []})
+  this.state = {allergyOutputArray: []}
 }
 render () {
 
@@ -22,13 +22,14 @@ axios.get('https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/AllergyIntolerance?patie
     let onsetAt =  allergyDataArray[i].resource.reaction[0].onset
     this.setState({allergyOutputArray: [...this.state.allergyOutputArray, {type, patientName, substance, certainty, onsetAt}]})
   }
+  console.log('allergyoutputarray yo',this.state.allergyOutputArray)
 })
 .catch(console.error);
 
 return (
   <div>
-  {this.allergyOutputArray.map((allergyObj) => {
-      return (<div className="row">
+  {this.state.allergyOutputArray.map((allergyObj) => {
+      return (<div key={allergyObj.substance} className="row">
         <div className="col s12 m6">
           <div className="card blue-grey darken-1">
             <div className="card-content white-text">
