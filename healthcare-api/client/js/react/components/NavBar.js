@@ -1,14 +1,19 @@
-const React = require('react');
-// const { Link } = require('react-dom');
-import LogIn from  './LogIn';
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+
 // const SignUp = require('/SignUp');
 // const LogOut = require('./LogOut');
-console.log('**INITIATING NAVBAR');
 
 const NavBar = function () {
+	console.log('**INITIATING NAVBAR');
 	return (
 		<div >
-			<LogIn />
+			<div className="pull-right">
+				<Link to="hi">
+					<button className="btn" >BUTTON</button>
+				</Link>
+			</div>
 		</div>
 		);
 };
