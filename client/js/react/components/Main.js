@@ -4,6 +4,7 @@ import React from 'react';
 const {/*Route,*/ HashRouter} = require('react-router-dom');
 import NavBar  from './NavBar';
 import Allergy from './Allergy'
+import AllergyDash from './AllergyDash'
 
 export default class Main extends React.Component {
 	constructor () {
@@ -15,7 +16,7 @@ export default class Main extends React.Component {
 		return (
 			<div>
 				<NavBar />
-				<Allergy />
+				<AllergyDash />
 				<p>asldkfja</p>
 			</div>
 			);
