@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
+console.log('**INITIATE STATICS');
 
 var rootPath = path.join(__dirname, '..', '..');
 var clientPath = path.join(rootPath, 'client');

@@ -4,7 +4,7 @@
 var webpack = require('webpack');
 
 module.exports = {
-  entry: './client/js/app.js',
+  entry: './client/app.js',
   output: {
     path: __dirname,
     filename: './build/bundle.js'
