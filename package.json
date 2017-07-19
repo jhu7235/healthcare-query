@@ -1,10 +1,18 @@
 {
   "name": "healthcare-api",
   "version": "1.0.0",
-  "author": "Fullstack Instructors",
+  "author": "Jason Hu, Brian Carlisle, Raj Kadiyala",
   "scripts": {
     "start": "webpack -w & nodemon --watch server -e js,html server/index.js"
   },
+  "engines": {
+    "node": "8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jhu7235/healthcare-query"
+  },
+  "main": "index.js",
   "devDependencies": {},
   "dependencies": {
     "axios": "^0.16.2",
