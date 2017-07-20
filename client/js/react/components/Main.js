@@ -16,12 +16,12 @@ export default class Main extends React.Component {
 		return (
 			<div>
 				<NavBar />
-				<div>
-				<Switch>
-					<Route path="/login" component={LogIn} />
-					<Route path="/signup" component={SignUp} />
-					<Redirect path="/home" />
-				</Switch>
+				<div className="app-body">
+					<Switch>
+						<Route path="/login" component={LogIn} />
+						<Route path="/signup" component={SignUp} />
+						<Redirect path="/home" />
+					</Switch>
 				</div>
 				<AllergyPage />
 				<AllergyDash />
