@@ -1,4 +1,8 @@
 console.log('**INITIATE STORE');
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import loggerMiddleware from 'redux-logger';
+import thunkMiddleWare from 'redux-thunk';
 import rootReducer from './redux/reducer';
-export default createStore(rootReducer);
+
+const middleware = applyMiddleware(loggerMiddleware, thunkMiddleWare);
+export default createStore(rootReducer, middleware);
