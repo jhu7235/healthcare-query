@@ -1,3 +1,4 @@
+'use strict';
 //Defining relevant constants to be used by our reducer
 export const axios = require('axios');
 

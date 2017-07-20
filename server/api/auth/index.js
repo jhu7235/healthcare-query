@@ -2,7 +2,7 @@ const router = require('express').Router();
 const User = require('../../db/user/user.model');
 
 router.post('/login', (req, res, next) => {
-	User.findOne({
+	User.create({
 		email: req.body.email,
 		password: req.body.password,
 	})

@@ -6,5 +6,9 @@ build login
 - dispatch and store
  - submit -> hit db -> db pass -> user gets updated on store
  	- HOW TO SETUP UP REACT-REDUX
+ 	- setup db
 
  - submit -> hit db -> db failed -> sends a failure page
+
+
+ component -> TC ->
