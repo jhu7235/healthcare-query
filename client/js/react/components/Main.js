@@ -3,8 +3,8 @@ import LogIn from './LogIn';
 // const SignIn = require('./SignIns');
 import {Switch, Route, Redirect } from 'react-router-dom';
 import NavBar  from './NavBar';
-import Allergy from './Allergy';
-import AllergyDash from './AllergyDash';
+import AllergyPage from './allergy/AllergyPage';
+import AllergyDash from './allergy/AllergyDash';
 
 export default class Main extends React.Component {
 	constructor () {
@@ -20,7 +20,7 @@ export default class Main extends React.Component {
 					<Route  path="/login" component={LogIn} />
 					<Redirect path="home" />
 				</Switch>
-				{/*<Allergy />*/}
+				<AllergyPage />
 				<AllergyDash />
 				<p>MAIN LOADED</p>
 			</div>
