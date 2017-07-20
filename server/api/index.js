@@ -1,7 +1,6 @@
 const router = require('express').Router();
 
 router.use('/auth', require('./auth'));
-
-console.log('**INITIATES API');
 router.use('/request', require('./request'));
+console.log('**INITIATES API');
 module.exports = router;
