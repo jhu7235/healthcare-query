@@ -3,3 +3,11 @@
 	padding-left: 2%;
 	padding-right: 2%;
 }
+
+div.forgot-box {
+	float:right;
+}
+
+div.main-action-box {
+	float: left;
+}

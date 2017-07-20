@@ -20,9 +20,9 @@ export default class Main extends React.Component {
 		return (
 			<div>
 				<Navbar />
+
 				<div className="app-body">
 				<Switch>
-					<Route path="/login" component={LogIn} />
 					<Route path="/patient/signup" component={SignUp} />
 					<Route path="/patient/allergies" component={AllergyPage} />
 					<Route path="/patient/medications" component={MedicationPage} />

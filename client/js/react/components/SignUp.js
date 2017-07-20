@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { signupUserTC } from '../../redux/signup';
+import { Link } from 'react-router-dom';
 
 function SignUp (props) {
 	console.log('**INITIATING LOG IN');
@@ -78,8 +79,19 @@ function SignUp (props) {
           />
       </div>
 
+
       <div>
-        <button type="submit" className="btn btn-block btn-primary">SIGN IN</button>
+        <div className="main-action-box">
+          <Link to="/signup">
+            <button type="submit" className="btn btn-block btn-primary">SIGN UP</button>
+          </Link>
+        </div>
+        <div className="forgot-box">
+          <Link to="/login">
+            <button className="btn" >LOG IN</button>
+          </Link>
+          <span className="psw">Forgot <a href="#">password?</a></span>
+        </div>
       </div>
 
 		</form>
