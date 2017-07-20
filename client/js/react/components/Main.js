@@ -2,9 +2,9 @@ import React from 'react';
 import LogIn from './LogIn';
 import {Switch, Route, Redirect } from 'react-router-dom';
 import NavBar  from './NavBar';
-import Allergy from './Allergy';
-import AllergyDash from './AllergyDash';
 import SignUp from './SignUp';
+import AllergyPage from './allergy/AllergyPage';
+import AllergyDash from './allergy/AllergyDash';
 
 export default class Main extends React.Component {
 	constructor () {
@@ -23,7 +23,7 @@ export default class Main extends React.Component {
 					<Redirect path="/home" />
 				</Switch>
 				</div>
-				{/*<Allergy />*/}
+				<AllergyPage />
 				<AllergyDash />
 				<p>MAIN LOADED</p>
 			</div>
