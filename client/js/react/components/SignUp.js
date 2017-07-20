@@ -8,7 +8,7 @@ function SignUp (props) {
 		<form onSubmit={props.handleSubmit}>
 
       <div className="form-group">
-        <div className="col-6-md">
+        <div className="col-md-6">
           <label>first</label>
           <input
             name="firstName"
@@ -17,7 +17,7 @@ function SignUp (props) {
             required
           />
         </div>
-        <div className="col-6-md">
+        <div className="col-md-6">
           <label>last</label>
           <input
             name="lastName"
@@ -29,7 +29,6 @@ function SignUp (props) {
       </div>
 
       <div className="form-group">
-
         <label>birthday</label>
         <input
           name="date"
@@ -37,10 +36,19 @@ function SignUp (props) {
           className="form-control"
           required
         />
-
       </div>
 
-			<div className="form-group">
+
+      <div className="form-group">
+        <label>phone</label>
+        <input
+          name="phone"
+          type="tel"
+          className="form-control"
+        />
+      </div>
+
+      <div className="form-group">
         <label>email</label>
         <input
           name="email"
@@ -63,7 +71,7 @@ function SignUp (props) {
       <div className="form-group">
           <label>re-enter password</label>
           <input
-            name="password"
+            name="re-password"
             type="password"
             className="form-control"
             required
@@ -72,7 +80,6 @@ function SignUp (props) {
 
       <div>
         <button type="submit" className="btn btn-block btn-primary">SIGN IN</button>
-        <button type="button" className="btn cancelbtn">Cancel</button>
       </div>
 
 		</form>
@@ -89,13 +96,14 @@ const mapFunctionToProps = function (dispatch, ownProps) {
   return {
     handleSubmit(event) {
       event.preventDefault();
-      let birthday = new Date(event.target.year.value, event.target.month.value, event.target.date.value);
+      let birthday = new Date(event.target.date.value);
       const credential = {
         birthday: birthday,
-        firstName: event.target.fname.value,
-        lastName: event.target.lname.value,
+        firstName: event.target.firstName.value,
+        lastName: event.target.lastName.value,
         email: event.target.email.value,
-        password: event.target.password.value
+        password: event.target.password.value,
+        phone: event.target.phone.value
       };
       console.log('REACT signup', credential);
       dispatch(signupUserTC(credential, ownProps.history));
