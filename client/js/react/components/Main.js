@@ -1,7 +1,7 @@
 import React from 'react';
 import LogIn from './LogIn';
 import {Switch, Route, Redirect } from 'react-router-dom';
-import Navbar  from './Navbar';
+import NavBar  from './NavBar';
 import SignUp from './SignUp';
 import AllergyPage from './allergy/AllergyPage';
 import AllergyDash from './allergy/AllergyDash';
