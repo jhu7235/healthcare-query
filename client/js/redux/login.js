@@ -15,17 +15,8 @@ const incorrectLogin = () => ({ type: INCORRECT_LOGIN });
 // ACTION CREATORS
 export default (state = {}, action) => {
 	let newState = Object.assign({}, state);
-
-	switch (action.type) {
-
-		case USER_LOG_IN:
-			newState.user = action.user;
-			break;
-
-		default:
-			return newState;
-	}
-    return newState;
+	newState.user = action.user;
+	return newState;
 };
 
 
