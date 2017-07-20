@@ -5,6 +5,7 @@ import NavBar  from './NavBar';
 import SignUp from './SignUp';
 import AllergyPage from './allergy/AllergyPage';
 import AllergyDash from './allergy/AllergyDash';
+import MedicationPage from './MedicationPage'
 
 export default class Main extends React.Component {
 	constructor () {
@@ -25,6 +26,7 @@ export default class Main extends React.Component {
 				</div>
 				<AllergyPage />
 				<AllergyDash />
+				<MedicationPage />
 				<p>MAIN LOADED</p>
 			</div>
 			);
