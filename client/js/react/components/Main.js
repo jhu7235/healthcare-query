@@ -7,6 +7,8 @@ import AllergyPage from './allergy/AllergyPage';
 import AllergyDash from './allergy/AllergyDash';
 import MedicationPage from './MedicationPage'
 import ImmunizationPage from './ImmunizationPage'
+import FamilyHistoryPage from './FamilyHistoryPage'
+import ProcedurePage from './ProcedurePage'
 
 export default class Main extends React.Component {
 	constructor() {
@@ -21,14 +23,16 @@ export default class Main extends React.Component {
 				<div className="app-body">
 				<Switch>
 					<Route path="/login" component={LogIn} />
-					<Route path="/signup" component={SignUp} />
-					<Redirect path="/home" />
+					<Route path="/patient/signup" component={SignUp} />
+					<Route path="/patient/allergies" component={AllergyPage} />
+					<Route path="/patient/medications" component={MedicationPage} />
+					<Route path="/patient/immunizations" component={ImmunizationPage} />
+					<Route path="/patient/familyHistory" component={FamilyHistoryPage} />
+					<Route path="/patient/procedures" component={ProcedurePage} />
+					<Redirect path="/patient" />
 				</Switch>
 				</div>
-				<AllergyPage />
 				<AllergyDash />
-				<MedicationPage />
-				<ImmunizationPage />
 				<p>MAIN LOADED</p>
 			</div>
 		);
