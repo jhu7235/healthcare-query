@@ -1,29 +1,24 @@
 import React from 'react';
 import LogIn from './LogIn';
-// const SignIn = require('./SignIns');
-import {Switch, Route, Redirect } from 'react-router-dom';
-import NavBar  from './NavBar';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import Navbar from './Navbar';
 import AllergyPage from './allergy/AllergyPage';
 import AllergyDash from './allergy/AllergyDash';
 
 export default class Main extends React.Component {
-	constructor () {
+	constructor() {
 		super();
 	}
 
 	render() {
-	console.log('**INITIATING MAIN', NavBar);
+		console.log('**INITIATING MAIN');
 		return (
 			<div>
-				<NavBar />
-				<Switch>
-					<Route  path="/login" component={LogIn} />
-					<Redirect path="home" />
-				</Switch>
+				<Navbar />
 				<AllergyPage />
 				<AllergyDash />
 				<p>MAIN LOADED</p>
 			</div>
-			);
+		);
 	}
 }
