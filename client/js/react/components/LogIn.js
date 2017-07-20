@@ -30,9 +30,7 @@ function LogIn (props) {
 
       <div>
         <div className="main-action-box">
-          <Link to="/login">
-            <button type="submit" className="btn btn-block btn-primary">LOG IN</button>
-          </Link>
+          <button type="submit" className="btn btn-block btn-primary">LOG IN</button>
         </div>
         <div className="forgot-box">
           <Link to="/signup">
