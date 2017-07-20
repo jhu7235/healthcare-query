@@ -3,11 +3,13 @@ const db = require('../_db');
 const Sequelize = require('sequelize');
 
 const User = db.define('user', {
-  name: Sequelize.STRING,
+  firstName: Sequelize.STRING,
+  lastName: Sequelize.STRING,
   photo: {
     type: Sequelize.STRING,
     defaultValue: '/images/default-photo.jpg'
   },
+  birthday: Sequelize.DATE,
   phone: Sequelize.STRING,
   email: {
     type: Sequelize.STRING,

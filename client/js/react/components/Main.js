@@ -12,7 +12,7 @@ export default class Main extends React.Component {
 	}
 
 	render() {
-	console.log('**INITIATING MAIN', NavBar);
+	console.log('**INITIATING MAIN');
 		return (
 			<div>
 				<NavBar />

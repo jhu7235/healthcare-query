@@ -1,10 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-
-// const SignUp = require('/SignUp');
-// const LogOut = require('./LogOut');
-
 const NavBar = function () {
 	console.log('**INITIATING NAVBAR');
 	return (
@@ -15,7 +11,7 @@ const NavBar = function () {
 				</Link>
 			</div>
 			<div className="">
-				<Link to="hi">
+				<Link to="/signup">
 					<button className="btn" >SIGN UP</button>
 				</Link>
 			</div>

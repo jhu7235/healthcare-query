@@ -4,13 +4,11 @@ export const axios = require('axios');
 
 
 // ACTION CONSTANTS
-const USER_LOG_IN = 'USER_LOG_IN';
+const USER_SIGN_UP = 'USER_SIGN_UP';
 
 
 //Action Creators
-const loginUser = user => ({ type: USER_LOG_IN, user});
-const incorrectLogin = () => ({ type: INCORRECT_LOGIN });
-
+const signupUser = user => ({ type: USER_SIGN_UP, user});
 
 // ACTION CREATORS
 export default (state = {}, action) => {
@@ -19,17 +17,18 @@ export default (state = {}, action) => {
 	return newState;
 };
 
-
 //Thunk Creators
-export const loginUserTC = (credential, history) => dispatch => {
+export const signupUserTC = (credential, history) => dispatch => {
 	console.log('LOGIN USER TC', credential);
-  return axios.post('/api/auth/login', credential)
+  return axios.post('/api/auth/signup', credential)
     .then( user => {
-      if (!user) dispatch(incorrectLogin());
-      dispatch(loginUser(user));
-      console.log(user);
-      history.push('/dashboard');
-    } )
+      if (!user) console.err('NO USE SIGNED UP')//should show a pop-up text
+      else {
+      	dispatch(signupUser(user));
+      	console.log(user);
+      	history.push('/dashboard');
+      }
+    })
     .catch(console.error);
 };
 
