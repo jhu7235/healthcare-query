@@ -1,52 +1,43 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { signUpUserTC } from '../../redux/signup';
+import { signupUserTC } from '../../redux/signup';
 
 function SignUp (props) {
 	console.log('**INITIATING LOG IN');
 	return (
 		<form onSubmit={props.handleSubmit}>
-      <label>name</label>
+
       <div className="form-group">
-        <label>first</label>
-        <input
-          name="firstName"
-          type="firstName"
-          className="form-control"
-          required
-        />      
-        <label>last</label>
-        <input
-          name="lastName"
-          type="lastName"
-          className="form-control"
-          required
-        />
+        <div className="col-6-md">
+          <label>first</label>
+          <input
+            name="firstName"
+            type="text"
+            className="form-control"
+            required
+          />
+        </div>
+        <div className="col-6-md">
+          <label>last</label>
+          <input
+            name="lastName"
+            type="text"
+            className="form-control"
+            required
+          />
+        </div>
       </div>
 
-      <h2>Birthday<h2>
       <div className="form-group">
-        <label>month</label>
-        <input
-          name="month"
-          type="month"
-          className="form-control"
-          required
-        />
-        <label>date</label>
+
+        <label>birthday</label>
         <input
           name="date"
           type="date"
           className="form-control"
           required
         />
-        <label>year</label>
-        <input
-          name="year"
-          type="year"
-          className="form-control"
-          required
-        />
+
       </div>
 
 			<div className="form-group">
@@ -68,7 +59,6 @@ function SignUp (props) {
             required
           />
       </div>
-
 
       <div className="form-group">
           <label>re-enter password</label>
@@ -99,11 +89,11 @@ const mapFunctionToProps = function (dispatch, ownProps) {
   return {
     handleSubmit(event) {
       event.preventDefault();
-      let birthday = new Date(event.target.year.value, event.target.month.value, event.target.date.value)
+      let birthday = new Date(event.target.year.value, event.target.month.value, event.target.date.value);
       const credential = {
         birthday: birthday,
-        firstName: event.target.firstName.value,
-        lastName: event.target.lastName.value,
+        firstName: event.target.fname.value,
+        lastName: event.target.lname.value,
         email: event.target.email.value,
         password: event.target.password.value
       };

@@ -22,11 +22,11 @@ export const signupUserTC = (credential, history) => dispatch => {
 	console.log('LOGIN USER TC', credential);
   return axios.post('/api/auth/signup', credential)
     .then( user => {
-      if (!user) console.err('NO USE SIGNED UP')//should show a pop-up text
+      if (!user) {console.err('NO USE SIGNED UP');}//should show a pop-up text
       else {
-      	dispatch(signupUser(user));
-      	console.log(user);
-      	history.push('/dashboard');
+        dispatch(signupUser(user));
+        console.log(user);
+        history.push('/dashboard');
       }
     })
     .catch(console.error);
