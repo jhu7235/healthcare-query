@@ -6,6 +6,7 @@ const app = express();
 app.use(require('./middlewares/session'));
 app.use(require('./middlewares/logging'));
 app.use(require('./middlewares/bodyParser'));
+app.use(require('./middlewares/passport'));
 app.use('/api', require('./api'));
 // app.get('/', function (req, res, next) {
 //     res.sendFile(path.join(__dirname, './index.html'));

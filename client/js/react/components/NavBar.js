@@ -9,19 +9,24 @@ const NavBar = function () {
 	console.log('**INITIATING NAVBAR');
 	return (
 		<div >
-			<div className="pull-right">
+			<div className="">
+				<Link to="/login">
+					<button className="btn" >LOG IN</button>
+				</Link>
+			</div>
+			<div className="">
 				<Link to="hi">
-					<button className="btn" >BUTTON</button>
+					<button className="btn" >SIGN UP</button>
+				</Link>
+			</div>
+			<div className="">
+				<Link to="hi">
+					<button className="btn" >LOG OUT</button>
 				</Link>
 			</div>
 		</div>
 		);
 };
 
-			// <p>NAVBAR</p>
-
 export default NavBar;
-			// <Link /><img src={someLink} />
-			// <LogIn />
-			// <SignUp />
-			// <LogOut />
+
