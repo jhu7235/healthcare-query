@@ -6,6 +6,7 @@ import SignUp from './SignUp';
 import AllergyPage from './allergy/AllergyPage';
 import AllergyDash from './allergy/AllergyDash';
 import MedicationPage from './MedicationPage'
+import ImmunizationPage from './ImmunizationPage'
 
 export default class Main extends React.Component {
 	constructor() {
@@ -27,6 +28,7 @@ export default class Main extends React.Component {
 				<AllergyPage />
 				<AllergyDash />
 				<MedicationPage />
+				<ImmunizationPage />
 				<p>MAIN LOADED</p>
 			</div>
 		);
