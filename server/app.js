@@ -17,14 +17,12 @@ app.use(function (err, req, res, next) {
     res.status(500).send(err);
 });
 
-var validFrontendRoutes = ['/', '/stories', '/users', '/stories/:id', '/users/:id', '/signup', '/login'];
 var indexPath = path.join(__dirname, '..', 'client', 'index.html');
-validFrontendRoutes.forEach(function (stateRoute) {
-  app.get(stateRoute, function (req, res) {
-  	console.log('SERVING UP FRONT END');
-    res.sendFile(indexPath);
-  });
+app.get('*', function (req, res) {
+  console.log('SERVING UP FRONT END');
+  res.sendFile(indexPath);
 });
+
 
 module.exports = app;
 console.log('**INITIATES APP END');

@@ -1,13 +1,14 @@
 import React from 'react';
 import LogIn from './LogIn';
 import {Switch, Route, Redirect } from 'react-router-dom';
-import NavBar  from './NavBar';
+import Navbar  from './Navbar';
 import SignUp from './SignUp';
 import AllergyPage from './allergy/AllergyPage';
 import AllergyDash from './allergy/AllergyDash';
+import MedicationPage from './MedicationPage'
 
 export default class Main extends React.Component {
-	constructor () {
+	constructor() {
 		super();
 	}
 
@@ -15,18 +16,19 @@ export default class Main extends React.Component {
 	console.log('**INITIATING MAIN');
 		return (
 			<div>
-				<NavBar />
+				<Navbar />
 				<div className="app-body">
-					<Switch>
-						<Route path="/login" component={LogIn} />
-						<Route path="/signup" component={SignUp} />
-						<Redirect path="/home" />
-					</Switch>
+				<Switch>
+					<Route path="/login" component={LogIn} />
+					<Route path="/signup" component={SignUp} />
+					<Redirect path="/home" />
+				</Switch>
 				</div>
 				<AllergyPage />
 				<AllergyDash />
+				<MedicationPage />
 				<p>MAIN LOADED</p>
 			</div>
-			);
+		);
 	}
 }
