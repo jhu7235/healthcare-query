@@ -14,7 +14,7 @@ ReactDOM.render(
 	<Provider store={store}>
 		<Router history={history}>
 			<Switch>
-				<Route exact path="/patient" component={Main} />
+				<Route path="/patient" component={Main} />
 				<Route path="/" component={Landing} />
 			</Switch>
 		</Router>
