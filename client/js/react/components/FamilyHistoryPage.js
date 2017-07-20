@@ -2,58 +2,65 @@ import React from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 //import { fetchAllergiesThunkCreator } from '../../../redux/actions';
-// need immunizations version
+// need familyHistory version
 
-export default class ImmunizationPage extends React.Component {
+export default class FamilyHistoryPage extends React.Component {
 
   constructor(props) {
     super(props);
     //take out in favor of store
-    this.state = ({immunizationOutputArray: []})
+    this.state = ({familyHistoryOutputArray: []})
   }
 
   componentDidMount() {
  //   this.props.dispatchFetchAllergiesThunk();
-// need to make a immunizations version
-    axios.get('/api/request/patient/1/Immunization')
+// need to make a familyHistory version
+    axios.get('/api/request/patient/1/FamilyMemberHistory')
   .then(response => {
-    const immunizations = response.data.entry;
-    return immunizations.map(immunization => {
-      const resource = immunization.resource;
-      const resourceId = resource.id
-
+    const familyHistory = response.data.entry;
+    return familyHistory.map((familyHistoryEntry, index) => {
+      const resource = familyHistoryEntry.resource;
+      const resourceId = index
       const type = resource.resourceType;
       const date = Date(resource.date)
-      const wasNotGiven = resource.wasNotGiven
       const patientName = resource.patient.display;
 
-      const vaccineCode = resource.vaccineCode.text;
-      const vaccinceCode2 = resource.vaccineCode.coding[0].display
-      return {type, patientName, resourceId, date, wasNotGiven, vaccineCode, vaccinceCode2 };
+      const relativeName = resource.name
+      const relationship = resource.relationship.text;
+
+      let conditionsArray = []
+
+      if (resource.condition){
+      for (let i = 0; i < resource.condition.length; i++) {
+        conditionsArray.push(resource.condition[i].code.text)
+      }
+      }
+
+      return {type, patientName, resourceId, date, relativeName, relationship, conditionsArray };
     })
   })
-    .then((immunizationArray) => {
-      this.setState({immunizationOutputArray: immunizationArray})
+    .then((familyHistoryArray) => {
+      this.setState({familyHistoryOutputArray: familyHistoryArray})
     })
   }
   render () {
     //need to make this state for now
-    const immunizations = this.state.immunizationOutputArray;
+    const familyHistory = this.state.familyHistoryOutputArray;
 
     return (
       <div>
       {
-        immunizations.map((immunization) => {
-          return (<div key={immunization.resourceId} className="row">
+        familyHistory.map((familyHistoryEntry) => {
+          return (<div key={familyHistoryEntry.resourceId} className="row">
             <div className="col s12 m6">
               <div className="card blue-grey darken-1">
                 <div className="card-content white-text">
-                  <span className="card-title">Resource Type: {immunization.type}</span>
-                  <p>Patient: {immunization.patientName}</p>
-                  <p>Date: {immunization.date}</p>
-                  <p>Vaccine Code: {immunization.vaccineCode2}</p>
-                  <p>Vaccine Code (other note): {immunization.vaccineCode}</p>
-                  <p>Given?: {!immunization.wasNotGiven}</p>
+                  <span className="card-title">Resource Type: {familyHistoryEntry.type}</span>
+                  <p>Patient: {familyHistoryEntry.patientName}</p>
+                  <p>Date: {familyHistoryEntry.date}</p>
+                  <p>Vaccine Code: {familyHistoryEntry.vaccineCode2}</p>
+                  <p>Vaccine Code (other note): {familyHistoryEntry.vaccineCode}</p>
+                  <p>Given?: {!familyHistoryEntry.wasNotGiven}</p>
                 </div>
                 <div className="card-action">
                   <a href="#">This is a link</a>
@@ -71,17 +78,17 @@ export default class ImmunizationPage extends React.Component {
 
 }
 // need to uncomment when store is ready
-// const mapStateToProps = ({immunizations}) => {
+// const mapStateToProps = ({familyHistory}) => {
 //   return {
-//     immunizations,
+//     familyHistory,
 //   };
 // };
 
 // const mapDispatchToProps = dispatch => {
 //   return {
-//     dispatchFetchimmunizationsThunk: () => (dispatch(fetchimmunizationsThunkCreator())),
+//     dispatchFetchfamilyHistoryThunk: () => (dispatch(fetchfamilyHistoryThunkCreator())),
 //   };
 // };
 
-// export default connect(mapStateToProps, mapDispatchToProps)(ImmunizationPage);
+// export default connect(mapStateToProps, mapDispatchToProps)(FamilyHistoryPage);
 

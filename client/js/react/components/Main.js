@@ -32,7 +32,6 @@ export default class Main extends React.Component {
 					<Redirect path="/patient" />
 				</Switch>
 				</div>
-				<AllergyDash />
 				<p>MAIN LOADED</p>
 			</div>
 		);
