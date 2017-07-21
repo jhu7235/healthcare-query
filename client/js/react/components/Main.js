@@ -5,10 +5,10 @@ import NavBar  from './NavBar';
 import SignUp from './SignUp';
 import AllergyPage from './allergy/AllergyPage';
 import AllergyDash from './allergy/AllergyDash';
-import MedicationPage from './MedicationPage'
-import ImmunizationPage from './ImmunizationPage'
-import FamilyHistoryPage from './FamilyHistoryPage'
-import ProcedurePage from './ProcedurePage'
+import MedicationPage from './medication/MedicationPage'
+import ImmunizationPage from './immunization/ImmunizationPage'
+import FamilyHistoryPage from './family-history/FamilyHistoryPage'
+import ProcedurePage from './procedure/ProcedurePage'
 
 export default class Main extends React.Component {
 	constructor() {

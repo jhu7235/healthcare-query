@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchProceduresThunkCreator } from '../../redux/actions';
+import { fetchProceduresThunkCreator } from '../../../redux/actions';
 
 
 class ProcedurePage extends React.Component {
