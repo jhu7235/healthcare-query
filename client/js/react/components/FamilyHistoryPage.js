@@ -9,7 +9,7 @@ export default class FamilyHistoryPage extends React.Component {
   constructor(props) {
     super(props);
     //take out in favor of store
-    this.state = ({immunizationOutputArray: []});
+    this.state = ({familyHistoryOutputArray: []});
   }
 
   componentDidMount() {
@@ -58,9 +58,8 @@ export default class FamilyHistoryPage extends React.Component {
                   <span className="card-title">Resource Type: {familyHistoryEntry.type}</span>
                   <p>Patient: {familyHistoryEntry.patientName}</p>
                   <p>Date: {familyHistoryEntry.date}</p>
-                  <p>Vaccine Code: {familyHistoryEntry.vaccineCode2}</p>
-                  <p>Vaccine Code (other note): {familyHistoryEntry.vaccineCode}</p>
-                  <p>Given?: {!familyHistoryEntry.wasNotGiven}</p>
+                  <p>Relative Name: {familyHistoryEntry.relativeName}</p>
+                  <p>Relation: {familyHistoryEntry.relationship}</p>
                 </div>
                 <div className="card-action">
                   <a href="#">Mark as invalid</a>
