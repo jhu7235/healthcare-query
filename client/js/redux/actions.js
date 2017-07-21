@@ -76,8 +76,8 @@ export const fetchImmunizationsThunkCreator = () => dispatch => {
       const patientName = resource.patient.display;
 
       const vaccineCode = resource.vaccineCode.text;
-      const vaccinceCode2 = resource.vaccineCode.coding[0].display;
-      return {type, patientName, resourceId, date, wasNotGiven, vaccineCode, vaccinceCode2 };
+      const vaccineCode2 = resource.vaccineCode.coding[0].display;
+      return {type, patientName, resourceId, date, wasNotGiven, vaccineCode, vaccineCode2 };
     });
   })
   .then(immunizationsRelevantInfo => {
