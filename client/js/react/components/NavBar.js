@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Navbar= function () {
+const NavBar = function () {
 	console.log('**INITIATING NAVBAR');
 	return (
     <nav className="nav-extended">
         <div className="nav-wrapper">
-          <a href="#" className="brand-logo">Logo</a>
+          <a href="/patient" className="brand-logo"><img src="/logo.png"></img></a>
           <a href="#" data-activates="mobile-demo" className="button-collapse"><i className="material-icons">menu</i></a>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
             <li><a href="">Sass</a></li>
@@ -33,5 +33,5 @@ const Navbar= function () {
 		);
 };
 
-export default Navbar;
+export default NavBar;
 

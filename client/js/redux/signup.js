@@ -3,7 +3,7 @@
 export const axios = require('axios');
 
 
-// ACTION CONSTANTS
+//Constants
 const USER_SIGN_UP = 'USER_SIGN_UP';
 
 
@@ -11,7 +11,7 @@ const USER_SIGN_UP = 'USER_SIGN_UP';
 const signupUser = user => ({ type: USER_SIGN_UP, user});
 
 
-// ACTION CREATORS
+//Reducer
 export default (state = {}, action) => {
 	let newState = Object.assign({}, state);
 	newState.user = action.user;

@@ -1,51 +1,17 @@
 import React from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-//import { fetchAllergiesThunkCreator } from '../../../redux/actions';
-// need familyHistory version
+import { fetchFamilyHistoryThunkCreator } from '../../redux/actions';
 
-export default class FamilyHistoryPage extends React.Component {
 
-  constructor(props) {
-    super(props);
-    //take out in favor of store
-    this.state = ({familyHistoryOutputArray: []});
-  }
+class FamilyHistoryPage extends React.Component {
 
   componentDidMount() {
- //   this.props.dispatchFetchAllergiesThunk();
-// need to make a familyHistory version
-    axios.get('/api/request/patient/1/FamilyMemberHistory')
-  .then(response => {
-    const familyHistory = response.data.entry;
-    return familyHistory.map((familyHistoryEntry, index) => {
-      const resource = familyHistoryEntry.resource;
-      const resourceId = index
-      const type = resource.resourceType;
-      const date = Date(resource.date)
-      const patientName = resource.patient.display;
-
-      const relativeName = resource.name
-      const relationship = resource.relationship.text;
-
-      let conditionsArray = []
-
-      if (resource.condition){
-      for (let i = 0; i < resource.condition.length; i++) {
-        conditionsArray.push(resource.condition[i].code.text)
-      }
-      }
-
-      return {type, patientName, resourceId, date, relativeName, relationship, conditionsArray };
-    })
-  })
-    .then((familyHistoryArray) => {
-      this.setState({familyHistoryOutputArray: familyHistoryArray})
-    })
+    this.props.dispatchFetchFamilyHistoryThunk();
   }
   render () {
-    //need to make this state for now
-    const familyHistory = this.state.familyHistoryOutputArray;
+
+    const familyHistory = this.props.familyHistory;
 
     return (
       <div>
@@ -76,18 +42,17 @@ export default class FamilyHistoryPage extends React.Component {
   }
 
 }
-// need to uncomment when store is ready
-// const mapStateToProps = ({familyHistory}) => {
-//   return {
-//     familyHistory,
-//   };
-// };
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     dispatchFetchfamilyHistoryThunk: () => (dispatch(fetchfamilyHistoryThunkCreator())),
-//   };
-// };
+const mapStateToProps = ({familyHistory}) => {
+  return {
+    familyHistory,
+  };
+};
 
-// export default connect(mapStateToProps, mapDispatchToProps)(FamilyHistoryPage);
+const mapDispatchToProps = dispatch => {
+  return {
+    dispatchFetchFamilyHistoryThunk: () => (dispatch(fetchFamilyHistoryThunkCreator())),
+  };
+};
 
+export default connect(mapStateToProps, mapDispatchToProps)(FamilyHistoryPage);
