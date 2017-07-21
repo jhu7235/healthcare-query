@@ -8,7 +8,7 @@ const SingleAllergyDash = (props) => {
         <p className="collections-title">{allergy.substance}</p>
       </div>
       <div className="col s4">
-        <span className="collections-title">{Date(allergy.onsetAt)}</span>
+        <p className="collections-title">{Date(allergy.onsetAt)}</p>
       </div>
       <div className="col s3">
         <p className="collections-title">{allergy.certainty}</p>
