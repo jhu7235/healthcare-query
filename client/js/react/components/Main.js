@@ -21,7 +21,7 @@ export default class Main extends React.Component {
 			<div>
 				<NavBar />
 
-				<div className="app-body">
+				<div className="app-body" style={{backgroundColor: '#4AF2A1'}}>
 				<Switch>
 					<Route path="/patient/signup" component={SignUp} />
 					<Route path="/patient/allergies" component={AllergyPage} />
