@@ -9,14 +9,12 @@ const NavBar = function () {
           <a href="/patient" className="brand-logo"><img src="/logo.png" style={{height: '70px'}}></img></a>
           <a href="#" data-activates="mobile-demo" className="button-collapse"><i className="material-icons">menu</i></a>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
-            <li><a href="">Sass</a></li>
-            <li><a href="">Home</a></li>
-            <li><a href="">Signout</a></li>
+            <li><a href="/patient">Home</a></li>
+            <li><a href="/login">Signout</a></li>
           </ul>
           <ul className="side-nav" id="mobile-demo">
-            <li><a href="">Sass</a></li>
-            <li><a href="">Home</a></li>
-            <li><a href="">Signout</a></li>
+            <li><a href="/patient">Home</a></li>
+            <li><a href="/login">Signout</a></li>
           </ul>
         </div>
         <div className="nav-content">
