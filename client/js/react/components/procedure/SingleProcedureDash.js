@@ -8,7 +8,7 @@ const SingleProcedureDash = (props) => {
         <p className="collections-title">{procedure.procedure1}</p>
       </div>
       <div className="col s4">
-        <span className="collections-title">{Date(procedure.date)}</span>
+        <p className="collections-title">{Date(procedure.date)}</p>
       </div>
       <div className="col s3">
         <p className="collections-title">{procedure.status}</p>

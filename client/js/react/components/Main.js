@@ -11,13 +11,13 @@ import ProcedurePage from './procedure/ProcedurePage';
 import Dashboard from './Dashboard';
 
 export default function Main () {
-	
+
 	console.log('**INITIATING MAIN');
 
 		return (
 			<div>
 				<NavBar />
-				<div className="app-body" style={{backgroundColor: '#4AF2A1'}}>
+				<div className="app-body" >
 				<Switch>
 					<Route exact path="/patient" component={Dashboard} />
 					<Route path="/patient/signup" component={SignUp} />

@@ -16,23 +16,38 @@ class MedicationDash extends Component {
     return (
 
 
-      <div id="work-collections">
-        <div className="row">
-          <div className="col s12 m12 l6">
-            <ul id="medications-collection" className="collection">
-              <li className="collection-item avatar">
-                <i className="material-icons circle light-blue darken-2">announcement</i>
-                <span className="collection-header"><h3>Medications</h3></span>
-                <a href="#" className="secondary-content"><i className="mdi-action-grade"></i></a>
-              </li>
-              {
-                medications.map(medication => {
-                  return <li className="collection-item" key={medication.resourceId}><SingleMedicationDash medication={medication} /></li>;
-                })
-              }
-            </ul>
-          </div>
-        </div>
+      <div className="col s12 m12 l12">
+        <ul id="medications-collection" className="collection">
+          <li className="collection-item avatar">
+            <i className="material-icons circle light-blue darken-2">reorder</i>
+            <span className="collection-header"><h3>Medications</h3></span>
+            <a href="#" className="secondary-content"><i className="mdi-action-grade"></i></a>
+          </li>
+          <li className="collection-item">
+            <div className="row">
+              <div className="col s2">
+                <h5 className="collections-title">Date Written</h5>
+              </div>
+              <div className="col s4">
+                <h5 className="collections-title">Medication</h5>
+              </div>
+              <div className="col s2">
+                <h5 className="collections-title">Prescriber</h5>
+              </div>
+              <div className="col s2">
+                <h5 className="collections-title">Dosage</h5>
+              </div>
+              <div className="col s2">
+                <h5 className="collections-title">Refills?</h5>
+              </div>
+            </div>
+          </li>
+          {
+            medications.map(medication => {
+              return <li className="collection-item" key={medication.resourceId}><SingleMedicationDash medication={medication} /></li>;
+            })
+          }
+        </ul>
       </div>
 
     );
