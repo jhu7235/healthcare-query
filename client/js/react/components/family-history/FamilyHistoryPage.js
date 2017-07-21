@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchFamilyHistoryThunkCreator } from '../../redux/actions';
+import { fetchFamilyHistoryThunkCreator } from '../../../redux/actions';
 
 
 class FamilyHistoryPage extends React.Component {

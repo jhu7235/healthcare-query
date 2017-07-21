@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchMedicationsThunkCreator } from '../../redux/actions';
+import { fetchMedicationsThunkCreator } from '../../../redux/actions';
 
 
 class MedicationPage extends React.Component {
