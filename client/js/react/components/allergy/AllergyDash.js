@@ -5,10 +5,6 @@ import SingleAllergyDash from './SingleAllergyDash';
 
 class AllergyDash extends Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     this.props.dispatchfetchAllergiesThunk();
   }

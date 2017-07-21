@@ -6,10 +6,6 @@ import { fetchAllergiesThunkCreator } from '../../../redux/actions';
 
 class AllergyPage extends React.Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     this.props.dispatchFetchAllergiesThunk();
 

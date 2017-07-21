@@ -7,6 +7,9 @@ const initialState = {
 	allergies: [],
 	medications: [],
 	conditions: [],
+	immunizations: [],
+	procedures: [],
+	famHistory: [],
 };
 
 export default (state = initialState, action) => {
@@ -18,14 +21,22 @@ export default (state = initialState, action) => {
 			newState.allergies = action.allergies;
 			break;
 
-		case MEDICATIONS_RECEIVED: 
+		case MEDICATIONS_RECEIVED:
 			newState.medications = action.medications;
 			break;
 
-		case CONDITIONS_RECEIVED: 
-			newState.conditions = action.conditions;
+		case IMMUNIZATIONS_RECEIVED: 
+			newState.immunizations = action.immunizations;
 			break;
-					
+
+		case PROCEDURES_RECEIVED:
+			newState.procedures = action.procedures;
+			break;
+
+		case FAMILY_HISTORY_RECEIVED:
+			newState.famHistory = action.famHistory;
+			break;
+
 		default:
 			return newState;
 	}
