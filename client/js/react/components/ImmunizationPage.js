@@ -1,44 +1,18 @@
 import React from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-//import { fetchAllergiesThunkCreator } from '../../../redux/actions';
-// need immunizations version
+import { fetchImmunizationsThunkCreator } from '../../redux/actions';
 
-export default class ImmunizationPage extends React.Component {
 
-  constructor(props) {
-    super(props);
-    //take out in favor of store
-    this.state = ({immunizationOutputArray: []});
-  }
+class ImmunizationPage extends React.Component {
 
   componentDidMount() {
- //   this.props.dispatchFetchAllergiesThunk();
-// need to make a immunizations version
-    axios.get('/api/request/patient/1/Immunization')
-  .then(response => {
-    const immunizations = response.data.entry;
-    return immunizations.map(immunization => {
-      const resource = immunization.resource;
-      const resourceId = resource.id;
-
-      const type = resource.resourceType;
-      const date = Date(resource.date);
-      const wasNotGiven = resource.wasNotGiven;
-      const patientName = resource.patient.display;
-
-      const vaccineCode = resource.vaccineCode.text;
-      const vaccinceCode2 = resource.vaccineCode.coding[0].display;
-      return {type, patientName, resourceId, date, wasNotGiven, vaccineCode, vaccinceCode2 };
-    });
-  })
-    .then((immunizationArray) => {
-      this.setState({immunizationOutputArray: immunizationArray});
-    });
+    this.props.dispatchFetchImmunizationsThunk();
   }
+
   render () {
-    //need to make this state for now
-    const immunizations = this.state.immunizationOutputArray;
+
+    const immunizations = this.props.immunizations;
 
     return (
       <div>
@@ -70,18 +44,18 @@ export default class ImmunizationPage extends React.Component {
   }
 
 }
-// need to uncomment when store is ready
-// const mapStateToProps = ({immunizations}) => {
-//   return {
-//     immunizations,
-//   };
-// };
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     dispatchFetchimmunizationsThunk: () => (dispatch(fetchimmunizationsThunkCreator())),
-//   };
-// };
+const mapStateToProps = ({immunizations}) => {
+  return {
+    immunizations,
+  };
+};
 
-// export default connect(mapStateToProps, mapDispatchToProps)(ImmunizationPage);
+const mapDispatchToProps = dispatch => {
+  return {
+    dispatchFetchImmunizationsThunk: () => (dispatch(fetchImmunizationsThunkCreator())),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ImmunizationPage);
 

@@ -9,6 +9,7 @@ class MedicationPage extends React.Component {
   componentDidMount() {
     this.props.dispatchFetchMedicationsThunk();
   }
+  
   render () {
 
     const medications = this.props.medications;

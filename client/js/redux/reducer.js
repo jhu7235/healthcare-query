@@ -9,7 +9,7 @@ const initialState = {
 	conditions: [],
 	immunizations: [],
 	procedures: [],
-	famHistory: [],
+	familyHistory: [],
 };
 
 export default (state = initialState, action) => {
@@ -34,7 +34,7 @@ export default (state = initialState, action) => {
 			break;
 
 		case FAMILY_HISTORY_RECEIVED:
-			newState.famHistory = action.famHistory;
+			newState.familyHistory = action.familyHistory;
 			break;
 
 		default:

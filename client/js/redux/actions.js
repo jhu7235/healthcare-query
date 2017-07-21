@@ -9,7 +9,7 @@ const createAllergiesReceivedAction = allergies => ({ type: ALLERGIES_RECEIVED, 
 const createMedicationsReceivedAction = medications => ({ type: MEDICATIONS_RECEIVED, medications});
 const createImmunizationsReceivedAction = immunizations => ({ type: IMMUNIZATIONS_RECEIVED, immunizations});
 const createProceduresReceivedAction = procedures => ({ type: PROCEDURES_RECEIVED, procedures});
-const createFamilyHistoryReceivedAction = conditions => ({ type: CONDITIONS_RECEIVED, conditions});
+const createFamilyHistoryReceivedAction = familyHistory => ({ type: FAMILY_HISTORY_RECEIVED, familyHistory});
 
 
 //Thunk Creators
@@ -56,6 +56,86 @@ export const fetchMedicationsThunkCreator = () => dispatch => {
   })
   .then(medicationsRelevantInfo => {
     dispatch(createMedicationsReceivedAction(medicationsRelevantInfo));
+  })
+  .catch(console.error);
+};
+
+
+export const fetchImmunizationsThunkCreator = () => dispatch => {
+   return axios.get('/api/request/patient/1/Immunization')
+  .then(response => {
+    const immunizations = response.data.entry;
+    return immunizations.map(immunization => {
+      const resource = immunization.resource;
+      const resourceId = resource.id;
+
+      const type = resource.resourceType;
+      const date = Date(resource.date);
+      const wasNotGiven = resource.wasNotGiven;
+      const patientName = resource.patient.display;
+
+      const vaccineCode = resource.vaccineCode.text;
+      const vaccinceCode2 = resource.vaccineCode.coding[0].display;
+      return {type, patientName, resourceId, date, wasNotGiven, vaccineCode, vaccinceCode2 };
+    });
+  })
+  .then(immunizationsRelevantInfo => {
+    dispatch(createImmunizationsReceivedAction(immunizationsRelevantInfo));
+  })
+  .catch(console.error);
+};
+
+export const fetchProceduresThunkCreator = () => dispatch => {
+  return axios.get('/api/request/patient/1/Procedure')
+  .then(response => {
+    const procedures = response.data.entry;
+    return procedures.map(procedure => {
+      const resource = procedure.resource;
+      const resourceId = resource.id;
+
+      const patientName = resource.subject.display;
+      const type = resource.resourceType;
+      const status = resource.status;
+      const date = Date(resource.performedDateTime);
+      const procedure1 = resource.code.text;
+      const procedure2 = resource.code.coding[0].display;
+
+      return {type, patientName, resourceId, status, date, procedure1, procedure2};
+    });
+  })
+  .then(proceduresRelevantInfo => {
+    dispatch(createProceduresReceivedAction(proceduresRelevantInfo));
+  })
+  .catch(console.error);
+};
+
+export const fetchFamilyHistoryThunkCreator = () => dispatch => {
+  return axios.get('/api/request/patient/1/FamilyMemberHistory')
+  .then(response => {
+    const familyHistory = response.data.entry;
+    return familyHistory.map((familyHistoryEntry, index) => {
+      const resource = familyHistoryEntry.resource;
+      const resourceId = index;
+      const type = resource.resourceType;
+      const date = Date(resource.date);
+      const patientName = resource.patient.display;
+
+      const relativeName = resource.name;
+      const relationship = resource.relationship.text;
+
+      let conditionsArray = [];
+
+      if (resource.condition) {
+        resource.condition.forEach((condition, i) => {
+          conditionsArray.push(resource.condition[i].code.text);
+        });
+      }
+
+      return {type, patientName, resourceId, date, relativeName, relationship, conditionsArray };
+    });
+  })
+  .then(familyHistoryRelevantInfo => {
+    dispatch(createFamilyHistoryReceivedAction(familyHistoryRelevantInfo));
   })
   .catch(console.error);
 };

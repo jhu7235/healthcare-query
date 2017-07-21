@@ -1,44 +1,17 @@
 import React from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-//import { fetchAllergiesThunkCreator } from '../../../redux/actions';
-// need procedures version
+import { fetchProceduresThunkCreator } from '../../redux/actions';
 
-export default class ProcedurePage extends React.Component {
 
-  constructor(props) {
-    super(props);
-    //take out in favor of store
-    this.state = ({procedureOutputArray: []})
-  }
+class ProcedurePage extends React.Component {
 
   componentDidMount() {
- //   this.props.dispatchFetchAllergiesThunk();
-// need to make a procedures version
-    axios.get('/api/request/patient/1/Procedure')
-  .then(response => {
-    const procedures = response.data.entry;
-    return procedures.map(procedure => {
-      const resource = procedure.resource;
-      const resourceId = resource.id
-
-      const patientName = resource.subject.display;
-      const type = resource.resourceType;
-      const status = resource.status
-      const date = Date(resource.performedDateTime)
-      const procedure1 = resource.code.text
-      const procedure2 = resource.code.coding[0].display
-
-      return {type, patientName, resourceId, status, date, procedure1, procedure2 };
-    })
-  })
-    .then((procedureArray) => {
-      this.setState({procedureOutputArray: procedureArray})
-    })
+    this.props.dispatchFetchProceduresThunk();
   }
   render () {
     //need to make this state for now
-    const procedures = this.state.procedureOutputArray;
+    const procedures = this.props.procedures;
 
     return (
       <div>
@@ -70,18 +43,18 @@ export default class ProcedurePage extends React.Component {
   }
 
 }
-// need to uncomment when store is ready
-// const mapStateToProps = ({procedures}) => {
-//   return {
-//     procedures,
-//   };
-// };
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     dispatchFetchproceduresThunk: () => (dispatch(fetchproceduresThunkCreator())),
-//   };
-// };
+const mapStateToProps = ({procedures}) => {
+  return {
+    procedures,
+  };
+};
 
-// export default connect(mapStateToProps, mapDispatchToProps)(ProcedurePage);
+const mapDispatchToProps = dispatch => {
+  return {
+    dispatchFetchProceduresThunk: () => (dispatch(fetchProceduresThunkCreator())),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProcedurePage);
 
