@@ -4,7 +4,7 @@ import { signupUserTC } from '../../redux/signup';
 import { Link } from 'react-router-dom';
 
 function SignUp (props) {
-	console.log('**INITIATING LOG IN');
+	console.log('**INITIATING SIGIN UP');
 	return (
 		<form onSubmit={props.handleSubmit}>
 
@@ -79,12 +79,9 @@ function SignUp (props) {
           />
       </div>
 
-
       <div>
         <div className="main-action-box">
-          <Link to="/signup">
-            <button type="submit" className="btn btn-block btn-primary">SIGN UP</button>
-          </Link>
+          <button type="submit" className="btn btn-block btn-primary">SIGN UP</button>
         </div>
         <div className="forgot-box">
           <Link to="/login">

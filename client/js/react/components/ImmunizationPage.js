@@ -9,7 +9,7 @@ export default class ImmunizationPage extends React.Component {
   constructor(props) {
     super(props);
     //take out in favor of store
-    this.state = ({immunizationOutputArray: []})
+    this.state = ({immunizationOutputArray: []});
   }
 
   componentDidMount() {
@@ -20,21 +20,21 @@ export default class ImmunizationPage extends React.Component {
     const immunizations = response.data.entry;
     return immunizations.map(immunization => {
       const resource = immunization.resource;
-      const resourceId = resource.id
+      const resourceId = resource.id;
 
       const type = resource.resourceType;
-      const date = Date(resource.date)
-      const wasNotGiven = resource.wasNotGiven
+      const date = Date(resource.date);
+      const wasNotGiven = resource.wasNotGiven;
       const patientName = resource.patient.display;
 
       const vaccineCode = resource.vaccineCode.text;
-      const vaccinceCode2 = resource.vaccineCode.coding[0].display
+      const vaccinceCode2 = resource.vaccineCode.coding[0].display;
       return {type, patientName, resourceId, date, wasNotGiven, vaccineCode, vaccinceCode2 };
-    })
+    });
   })
     .then((immunizationArray) => {
-      this.setState({immunizationOutputArray: immunizationArray})
-    })
+      this.setState({immunizationOutputArray: immunizationArray});
+    });
   }
   render () {
     //need to make this state for now

@@ -10,12 +10,14 @@ const USER_SIGN_UP = 'USER_SIGN_UP';
 //Action Creators
 const signupUser = user => ({ type: USER_SIGN_UP, user});
 
+
 // ACTION CREATORS
 export default (state = {}, action) => {
 	let newState = Object.assign({}, state);
 	newState.user = action.user;
 	return newState;
 };
+
 
 //Thunk Creators
 export const signupUserTC = (credential, history) => dispatch => {
@@ -26,9 +28,9 @@ export const signupUserTC = (credential, history) => dispatch => {
       else {
         dispatch(signupUser(user));
         console.log(user);
-        history.push('/dashboard');
+        history.push('/patient');
       }
     })
-    .catch(console.error);
+    .catch(console.log('asdfalkdsjfalsd'));
 };
 

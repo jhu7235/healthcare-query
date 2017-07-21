@@ -22,13 +22,13 @@ export default (state = {}, action) => {
 
 //Thunk Creators
 export const loginUserTC = (credential, history) => dispatch => {
-	console.log('LOGIN USER TC', credential);
   return axios.post('/api/auth/login', credential)
     .then( user => {
+      console.log('LOGIN USER TC', user);
       if (!user) dispatch(incorrectLogin());
       dispatch(loginUser(user));
       console.log(user);
-      history.push('/dashboard');
+      history.push('/patient');
     } )
     .catch(console.error);
 };

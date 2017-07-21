@@ -9,7 +9,7 @@ export default class FamilyHistoryPage extends React.Component {
   constructor(props) {
     super(props);
     //take out in favor of store
-    this.state = ({familyHistoryOutputArray: []})
+    this.state = ({immunizationOutputArray: []});
   }
 
   componentDidMount() {
