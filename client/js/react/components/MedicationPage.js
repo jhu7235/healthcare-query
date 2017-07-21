@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import { connect } from 'react-redux';
 import { fetchMedicationsThunkCreator } from '../../redux/actions';
 
@@ -9,7 +8,7 @@ class MedicationPage extends React.Component {
   componentDidMount() {
     this.props.dispatchFetchMedicationsThunk();
   }
-  
+
   render () {
 
     const medications = this.props.medications;
