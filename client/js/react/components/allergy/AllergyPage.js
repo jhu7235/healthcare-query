@@ -26,7 +26,7 @@ class AllergyPage extends React.Component {
                   <p>Patient: {allergy.patientName}</p>
                   <p>Substance: {allergy.substance}</p>
                   <p>Certainty: {allergy.certainty}</p>
-                  <p>Onset at: {Date(allergy.onsetAt)}</p>
+                  <p>Onset at: {allergy.onsetAt}</p>
                 </div>
                 <div className="card-action">
                   <a href="#">Mark as invalid</a>
