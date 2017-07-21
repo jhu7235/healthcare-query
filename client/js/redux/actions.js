@@ -49,8 +49,9 @@ export const fetchMedicationsThunkCreator = () => dispatch => {
       const prescriber = resource.prescriber.display;
       const medicationReference = resource.medicationReference.display
       const dosageInstruction = resource.dosageInstruction[0].text;
-      const routeOrMethod = resource.dosageInstruction[0].route.text
-      const refillsListed = resource.dispenseRequest.numberOfRepeatsAllowed || 'none listed'
+      const routeOrMethod = resource.dosageInstruction[0].route.text;
+      let refillsListed = resource.dispenseRequest.numberOfRepeatsAllowed || 'no';
+      refillsListed += ' refills listed';
       return {type, patientName, dateWritten, status, prescriber, medicationReference, dosageInstruction, routeOrMethod, refillsListed, resourceId};
     });
   })

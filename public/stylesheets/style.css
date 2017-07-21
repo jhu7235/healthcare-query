@@ -2,12 +2,14 @@
 	padding-top: 5px;
 	padding-left: 2%;
 	padding-right: 2%;
-}
+	background-color: rgb(222, 220, 225);
+} 
 
-div.forgot-box {
+ div.forgot-box {
 	float:right;
 }
 
 div.main-action-box {
 	float: left;
-}
+} 
+
