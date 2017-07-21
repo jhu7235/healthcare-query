@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import AllergyDash from './AllergyDash';
+import AllergyDash from './allergy/AllergyDash';
+import MedicationDash from './medication/MedicationDash';
+import FamilyHistoryDash from './family-history/FamilyHistoryDash';
+import ImmunizationDash from './immunization/ImmunizationDash';
+import ProcedureDash from './procedure/ProcedureDash';
 
-class Dashboard extends Component {
+export default function Dashboard () {
+  return (
 
+    <div>
+      <AllergyDash />
+      <MedicationDash />
+      <FamilyHistoryDash />
+      <ImmunizationDash />
+      <ProcedureDash />
+    </div>
 
+  );
 }
-
-
-const mapStateToProps = state => {
-  return {};
-
-};
-
-const mapDispatchToProps = dispatch => {
-  return {};
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
 

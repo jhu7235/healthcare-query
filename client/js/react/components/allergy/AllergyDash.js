@@ -6,7 +6,7 @@ import SingleAllergyDash from './SingleAllergyDash';
 class AllergyDash extends Component {
 
   componentDidMount() {
-    this.props.dispatchfetchAllergiesThunk();
+    this.props.dispatchFetchAllergiesThunk();
   }
 
   render() {
@@ -26,8 +26,8 @@ class AllergyDash extends Component {
                 <a href="#" className="secondary-content"><i className="mdi-action-grade"></i></a>
               </li>
               {
-                allergies.map((allergy, index) => {
-                  return <li className="collection-item" key={index}><SingleAllergyDash allergy={allergy} /></li>;
+                allergies.map(allergy => {
+                  return <li className="collection-item" key={allergy.susbtance}><SingleAllergyDash allergy={allergy} /></li>;
                 })
               }
             </ul>
@@ -48,7 +48,7 @@ const mapStateToProps = ({ allergies }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    dispatchfetchAllergiesThunk: () => dispatch(fetchAllergiesThunkCreator()),
+    dispatchFetchAllergiesThunk: () => dispatch(fetchAllergiesThunkCreator()),
   };
 };
 
