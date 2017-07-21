@@ -19,7 +19,7 @@ export default class Main extends React.Component {
 	console.log('**INITIATING MAIN');
 		return (
 			<div>
-				<Navbar />
+				<NavBar />
 
 				<div className="app-body">
 				<Switch>
@@ -32,7 +32,6 @@ export default class Main extends React.Component {
 					<Redirect path="/patient" />
 				</Switch>
 				</div>
-				<p>MAIN LOADED</p>
 			</div>
 		);
 	}

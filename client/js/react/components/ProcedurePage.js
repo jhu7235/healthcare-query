@@ -24,8 +24,12 @@ export default class ProcedurePage extends React.Component {
 
       const patientName = resource.subject.display;
       const type = resource.resourceType;
+      const status = resource.status
+      const date = Date(resource.performedDateTime)
+      const procedure1 = resource.code.text
+      const procedure2 = resource.code.coding[0].display
 
-      return {type, patientName, resourceId };
+      return {type, patientName, resourceId, status, date, procedure1, procedure2 };
     })
   })
     .then((procedureArray) => {
@@ -47,13 +51,13 @@ export default class ProcedurePage extends React.Component {
                   <span className="card-title">Resource Type: {procedure.type}</span>
                   <p>Patient: {procedure.patientName}</p>
                   <p>Date: {procedure.date}</p>
-                  <p>Vaccine Code: {procedure.vaccineCode2}</p>
-                  <p>Vaccine Code (other note): {procedure.vaccineCode}</p>
-                  <p>Given?: {!procedure.wasNotGiven}</p>
+                  <p>Status: {procedure.status}</p>
+                  <p>Procedure description: {procedure.procedure1}</p>
+                  <p>Alternative description: {procedure.procedure2}</p>
                 </div>
                 <div className="card-action">
-                  <a href="#">This is a link</a>
-                  <a href="#">This is a link</a>
+                  <a href="#">Mark as invalid</a>
+                  <a href="#">Update (will keep original value as well)</a>
                 </div>
               </div>
             </div>
