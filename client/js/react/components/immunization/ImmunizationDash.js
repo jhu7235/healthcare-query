@@ -25,13 +25,15 @@ class ImmunizationDash extends Component {
             <a href="#" className="secondary-content"><i className="mdi-action-grade"></i></a>
           </li>
           <li className="collection-item">
-            <div className="row">
+            <div className="row"> 
+            <div className="col s1"></div>        
               <div className="col s5">
                 <h5 className="collections-title">Vaccine</h5>
               </div>
-              <div className="col s7">
+              <div className="col s5">
                 <h5 className="collections-title">Date Immunized</h5>
-              </div>
+              </div> 
+              <div className="col s1"></div> 
             </div>
           </li>
           {

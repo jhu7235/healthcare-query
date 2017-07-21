@@ -24,13 +24,13 @@ class FamilyHistoryDash extends Component {
           </li>
           <li className="collection-item">
             <div className="row">
-              <div className="col s3">
+              <div className="col s4">
                 <h5 className="collections-title">Name</h5>
               </div>
-              <div className="col s3">
+              <div className="col s4">
                 <h5 className="collections-title">Relationship</h5>
               </div>
-              <div className="col s6">
+              <div className="col s4">
                 <h5 className="collections-title">Date</h5>
               </div>
             </div>

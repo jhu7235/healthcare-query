@@ -28,10 +28,10 @@ class ProcedureDash extends Component {
               <div className="col s5">
                 <h5 className="collections-title">Procedure</h5>
               </div>
-              <div className="col s4">
+              <div className="col s5">
                 <h5 className="collections-title">Date of procedure</h5>
               </div>
-              <div className="col s3">
+              <div className="col s2">
                 <h5 className="collections-title">Status</h5>
               </div>
             </div>
