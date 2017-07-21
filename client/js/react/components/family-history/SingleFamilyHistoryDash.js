@@ -11,7 +11,7 @@ const SingleFamilyHistoryDash = (props) => {
         <p className="collections-title">{familyHistoryEntry.relationship}</p>
       </div>
       <div className="col s6">
-        <p className="collections-title">{Date(familyHistoryEntry.date)}</p>
+        <p className="collections-title">{familyHistoryEntry.date}</p>
       </div>
     </div>
 

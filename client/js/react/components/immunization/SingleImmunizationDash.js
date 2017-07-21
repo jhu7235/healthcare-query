@@ -8,7 +8,7 @@ const SingleImmunizationDash = (props) => {
         <p className="collections-title">{immunization.vaccineCode}</p>
       </div>
       <div className="col s7">
-        <p className="collections-title">{Date(immunization.date)}</p>
+        <p className="collections-title">{immunization.date}</p>
       </div>
     </div>
 
