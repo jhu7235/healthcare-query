@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { loginUserTC } from '../../redux/login';
 import { Link } from 'react-router-dom';
+import { loginUserTC } from '../../redux/login';
 
 function LogIn (props) {
 	console.log('**INITIATING LOG IN');
@@ -51,6 +51,7 @@ const mapStateToProps = function (state) {
 };
 
 const mapFunctionToProps = function (dispatch, ownProps) {
+  console.log(ownProps);
   return {
     handleSubmit(event) {
       event.preventDefault();

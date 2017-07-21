@@ -35,7 +35,7 @@ router.post('/signup', (req, res, next) => {
 				res.json(user);
 			}
 		})
-		.catch(console.log);
+		.catch(console.error);
 });
 
 module.exports = router;

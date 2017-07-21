@@ -19,8 +19,7 @@ export default class Main extends React.Component {
 	console.log('**INITIATING MAIN');
 		return (
 			<div>
-				<NavBar />
-
+				<Route path="/patient" component={NavBar} />
 				<div className="app-body" style={{backgroundColor: '#4AF2A1'}}>
 				<Switch>
 					<Route path="/patient/signup" component={SignUp} />

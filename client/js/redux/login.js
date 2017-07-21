@@ -9,13 +9,26 @@ const USER_LOG_IN = 'USER_LOG_IN';
 
 //Action Creators
 const loginUser = user => ({ type: USER_LOG_IN, user});
-const incorrectLogin = () => ({ type: INCORRECT_LOGIN });
 
 
 // ACTION CREATORS
 export default (state = {}, action) => {
 	let newState = Object.assign({}, state);
-	newState.user = action.user;
+
+  switch (action.type) {
+
+    case USER_LOG_IN:
+	    newState.user = action.user;
+      break;
+
+    case USER_LOG_OUT:
+      newState.user = {};
+      break;
+
+    default:
+      break;
+
+  }
 	return newState;
 };
 
@@ -24,12 +37,9 @@ export default (state = {}, action) => {
 export const loginUserTC = (credential, history) => dispatch => {
   return axios.post('/api/auth/login', credential)
     .then( user => {
-      console.log('LOGIN USER TC', user);
-      if (!user) dispatch(incorrectLogin());
-      dispatch(loginUser(user));
-      console.log(user);
+      console.log('LOGIN USER TC');
+      if (!user) console.error('ISSUE LOGGING IN');
       history.push('/patient');
     } )
     .catch(console.error);
 };
-
