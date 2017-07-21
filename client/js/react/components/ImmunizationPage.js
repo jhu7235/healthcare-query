@@ -56,8 +56,8 @@ export default class ImmunizationPage extends React.Component {
                   <p>Given?: {!immunization.wasNotGiven}</p>
                 </div>
                 <div className="card-action">
-                  <a href="#">This is a link</a>
-                  <a href="#">This is a link</a>
+                  <a href="#">Mark as invalid</a>
+                  <a href="#">Update (will keep original value as well)</a>
                 </div>
               </div>
             </div>
