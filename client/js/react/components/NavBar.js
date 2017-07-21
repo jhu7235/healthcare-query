@@ -21,10 +21,12 @@ const Navbar= function () {
         </div>
         <div className="nav-content">
           <ul className="tabs tabs-transparent">
-            <li className="tab"><a href="#test1">Medications</a></li>
-            <li className="tab"><a className="active" href="#test2">Allergies</a></li>
-            <li className="tab"><a href="#test3">Conditions</a></li>
-            <li className="tab"><a href="#test4"> Family History</a></li>
+            <li className="tab"><a href="/patient/medications">Medications</a></li>
+            <li className="tab"><a className="active" href="/patient/allergies">Allergies</a></li>
+            <li className="tab"><a href="/patient/immunizations">Immunizations</a></li>
+            <li className="tab"><a href="/patient/familyhistory"> Family History</a></li>
+            <li className="tab"><a href="/patient/procedures">Procedures</a></li>
+
           </ul>
         </div>
       </nav>
