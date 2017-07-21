@@ -77,7 +77,6 @@ export const fetchImmunizationsThunkCreator = () => dispatch => {
 
       const vaccineCode = resource.vaccineCode.text;
       const vaccineCode2 = resource.vaccineCode.coding[0].display;
-      console.log('wooooo----vaccinecode2', resource.vaccineCode.coding[0].display)
       return {type, patientName, resourceId, date, wasNotGiven, vaccineCode, vaccineCode2 };
     });
   })
