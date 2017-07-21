@@ -20,7 +20,7 @@ const NavBar = function () {
         <div className="nav-content">
           <ul className="tabs tabs-transparent">
             <li className="tab"><a href="/patient/medications">Medications</a></li>
-            <li className="tab"><a className="active" href="/patient/allergies">Allergies</a></li>
+            <li className="tab"><a href="/patient/allergies">Allergies</a></li>
             <li className="tab"><a href="/patient/immunizations">Immunizations</a></li>
             <li className="tab"><a href="/patient/familyhistory"> Family History</a></li>
             <li className="tab"><a href="/patient/procedures">Procedures</a></li>
