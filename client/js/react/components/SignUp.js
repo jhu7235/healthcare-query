@@ -85,7 +85,7 @@ function SignUp (props) {
         </div>
         <div className="forgot-box">
           <Link to="/login">
-            <button className="btn" >LOG IN</button>
+            <a className="btn-flat">LOG IN</a>
           </Link>
           <span className="psw">Forgot <a href="#">password?</a></span>
         </div>

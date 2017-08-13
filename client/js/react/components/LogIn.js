@@ -6,41 +6,49 @@ import { loginUserTC } from '../../redux/login';
 function LogIn (props) {
 	console.log('**INITIATING LOG IN');
 	return (
-		<form onSubmit={props.handleSubmit}>
+    <div className="container">
+      <form onSubmit={props.handleSubmit}>
 
-			<div className="form-group">
-        <label>email</label>
-        <input
-          name="email"
-          type="email"
-          className="form-control"
-          required
-        />
-      </div>
-
-      <div className="form-group">
-          <label>password</label>
+        <div className="form-group">
+          <label>email</label>
           <input
-            name="password"
-            type="password"
+            name="email"
+            type="email"
             className="form-control"
             required
           />
-      </div>
-
-      <div>
-        <div className="main-action-box">
-          <button type="submit" className="btn btn-block btn-primary">LOG IN</button>
         </div>
-        <div className="forgot-box">
-          <Link to="/signup">
-            <button className="btn" >SIGN UP</button>
-          </Link>
-          <span className="psw">Forgot <a href="#">password?</a></span>
-        </div>
-      </div>
 
-		</form>
+        <div className="form-group">
+            <label>password</label>
+            <input
+              name="password"
+              type="password"
+              className="form-control"
+              required
+            />
+        </div>
+
+        <div className="form-group">
+          <div className="forgot-box">
+            <Link to="/signup">
+              <a className="btn-flat">SIGN UP</a>
+            </Link>
+            <span className="psw">Forgot <a href="#">password?</a></span>
+          </div>
+          <div className="main-action-box">
+            <button
+            type="submit"
+            className="btn btn-block btn-primary login">
+              LOG IN
+              <i className="material-icons right">send</i>
+            </button>
+            <br/>
+            <a className="btn" href="/patient">LOG IN WITH DUMMY PATIENT</a>
+          </div>
+        </div>
+      </form>
+    </div>
 	);
 }
 
