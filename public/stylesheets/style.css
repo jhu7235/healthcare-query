@@ -9,10 +9,23 @@ body {
 }
 
  div.forgot-box {
-	float:right;
+	float: left;
 }
 
 div.main-action-box {
-	float: left;
+	float: right;
+	align-content: right;
 } 
 
+.btn {
+	margin: 3px;
+}
+
+.login {
+    float: right;
+    display:inline-block;
+}
+
+.psw {
+	padding-left: 5px;
+}
