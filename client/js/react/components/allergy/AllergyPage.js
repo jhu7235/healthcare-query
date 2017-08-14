@@ -1,8 +1,7 @@
 import React from 'react';
-import axios from 'axios';
 import { connect } from 'react-redux';
 import { fetchAllergiesThunkCreator } from '../../../redux/actions';
-
+import { Row, Col, ProgressBar } from 'react-materialize';
 
 class AllergyPage extends React.Component {
 
@@ -16,6 +15,11 @@ class AllergyPage extends React.Component {
 
     return (
       <div>
+      <Row>
+        <Col s={12}>
+          <ProgressBar progress={70} />
+        </Col>
+      </Row>
       {
         allergies.map((allergy) => {
           return (<div key={allergy.substance} className="row">

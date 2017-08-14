@@ -29,7 +29,7 @@ function LogIn (props) {
             />
         </div>
 
-        <div className="form-group">
+        <div className="clearfix">
           <div className="forgot-box">
             <Link to="/signup">
               <a className="btn-flat">SIGN UP</a>

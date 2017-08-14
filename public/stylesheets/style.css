@@ -1,15 +1,22 @@
 .app-body {
+	background-color: #F0F0F0;
+	opacity: .9;
 	padding-top: 5px;
 	padding-left: 2%;
 	padding-right: 2%;
+	height: 500px;
 }
 
 body {
-	background-color: rgb(222, 220, 225);
+	background-color: #F0F0F0;
 }
 
  div.forgot-box {
 	float: left;
+}
+
+form {
+	padding-top: 20px;
 }
 
 div.main-action-box {
@@ -21,9 +28,33 @@ div.main-action-box {
 	margin: 3px;
 }
 
+.welcome-message {
+	background-color: #F0F0F0;
+	opacity: .9;
+	height: 200px;
+}
+
+.clearfix:after {
+   content: " "; /* Older browser do not support empty content */
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
+}
+
+#landing {
+	height: 100%;
+	background: no-repeat fixed center url("https://tctechcrunch2011.files.wordpress.com/2014/11/digitalhealth.jpg?w=738");
+	background-size: cover;
+}
+
 .login {
     float: right;
     display:inline-block;
+}
+
+label {
+	color: black;
 }
 
 .psw {
